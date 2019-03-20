@@ -27,7 +27,7 @@ $(document).ready(function(){
     var special = ['FIRST TRY: You are only able to use the first two guns you pick up. No grenades!',
                    'GUERILLA WARFARE: You can pick up one gun (and its ammo) to start the game. After this, you can only acquire items through the death boxes of other players.',
                    'LIGHTWEIGHT: You cannot use any backpacks!',
-                   'MY FAVORITE DROP SPOT: You can only loot items found at the ste you drop at (Artillery, Skulltown, etc.). You can also loot the items from dead enemies.',
+                   'MY FAVORITE DROP SPOT: You can only loot items found at the site you drop at (Artillery, Skulltown, etc.). You can also loot the items from dead enemies.',
                    'SEPARATE BUT EQUAL: Each player must drop in a different zone, and cannot meet back together until the first circle has collapsed',
                    'DOWN AND OUT: You are not allowed to respawn any eliminated teammates.',
                    'SEVERELY UNDEREQUIPPED: You can only pick up grenades, shotgun ammo, and the best weapon in the game; the Mozambique. No other items may be used whatsoever.',
@@ -78,9 +78,27 @@ $(document).ready(function(){
     }
     if ($("input.special").prop('checked')) {
         generateSpecial = true;
+        generateWeapons = false;
+        generateArmor = false;
+        generateGrenades = false;
+        generateAttachments = false;
+        generateMeds = false;
+        generateDrop = false;
+        generateLegends = false;
+
+        $("input.legends").prop('checked', false);
+        $("input.weapons").prop('checked', false);
+        $("input.armor").prop('checked', false);
+        $("input.grenades").prop('checked', false);
+        $("input.attachments").prop('checked', false);
+        $("input.meds").prop('checked', false);
+        $("input.drop").prop('checked', false);
+
     } else {
         generateSpecial = false;
     }
+
+
 
 /*
 var array = [2, 5, 9];
