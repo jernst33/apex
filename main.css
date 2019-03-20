@@ -1,5 +1,6 @@
-﻿body { 
-	background-color: #595959;
+﻿body {
+	/* background-color: #595959; */
+	background-color: #000000;
 }
 h1 {
     color: white;
@@ -7,24 +8,24 @@ h1 {
 	text-align: center;
 }
 
-h1.titleh1 { 
+h1.titleh1 {
 	margin-top: 0px;
 	text-align: left;
 }
 
-h2 { 
+h2 {
 	text-align: center;
 }
 
-p { 
+p {
 	text-align: center;
 }
 header {
 	height: 628px;
 	width: 77%;
 	margin: auto;
-	background-image: url("images/victory.jpg");
-	
+	background-image: url("images/champion.jpg");
+
 }
 
 header h1 {
@@ -53,27 +54,27 @@ margin: auto;
 
 body {
 	font-family: 'Merriweather', serif;
-
 }
 
-table { 
+table {
 	width: 30%;
 	margin: auto;
 	border: 1pt solid black;
+	border-radius: 3%;
 }
 
-td { 
+td {
 	text-align: left;
 }
 
-td h2 { 
+td h2 {
 	text-align: left;
 }
 
-tr { 
+tr {
 }
 
-button { 
+button {
 	margin: auto;
 }
 .randomize {
@@ -105,7 +106,7 @@ button {
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;

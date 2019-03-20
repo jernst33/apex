@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <title>Blackout Roulette</title>	
+    <title>Apex Roulette</title>
     <link rel="stylesheet" href="main.css">
 	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -12,21 +12,32 @@
 	<div id="background2">
 	</div>
     <header>
-      <h1 class="titleh1"><strong><span style="color: #cc3300">Blackout</span> Roulette</strong></h1>   
+      <h1 class="titleh1"><strong><span style="color: #cc3300">Apex</span> Roulette</strong></h1>
     </header>
 	<main>
     <article>
-		<h1>Welcome to Blackout Roulette!</h1>
+		<h1>Welcome to Apex Roulette!</h1>
 		<p id="test">
-			This website will spice up your Blackout games. Hit level 80&#9734 like no-life LJGIBBS23 and are getting bored
-			with the game? Just turn some of these switches on, hit Randomize, and play with an extra challenge!
+			This website will spice up your Apex games. Getting tired of meaningless wins after meaningless wins?
+      Just activate some of these switches and we'll generate a challenge for you. Now you'll be able to get a
+      little bit of variety with each game you play.
 			<br>
 			<br>
-			<em>Note: in situations where the "special challenge" conflicts with one of the generated fields, follow the special 
-			challenge instead. They'll be more interesting/challenging.</em>
+			<em>Note: Choosing the "Special Challenge" option will nullify all other modifiers.</em>
 		</p>
 		<div class="selection">
 			<table>
+        <tr id="legends">
+					<td>
+						<label class="switch">
+							<input type="checkbox" class="legends">
+							<span class="slider round"></span>
+						</label>
+					</td>
+					<td>
+						<h2>Legends</h2>
+					</td>
+				</tr>
 				<tr id="weapons">
 					<td>
 						<label class="switch">
@@ -49,26 +60,26 @@
 						<h2>Armor</h2>
 					</td>
 				</tr>
-				<tr id="equipment">
+				<tr id="grenades">
 					<td>
 						<label class="switch">
-							<input type="checkbox" class="equipment">
+							<input type="checkbox" class="grenades">
 							<span class="slider round"></span>
 						</label>
 					</td>
 					<td>
-						<h2>Equipment</h2>
+						<h2>Grenades</h2>
 					</td>
 				</tr>
-				<tr id="vehicles">
+				<tr id="attachments">
 					<td>
 						<label class="switch">
-							<input type="checkbox" class="vehicles">
+							<input type="checkbox" class="attachments">
 							<span class="slider round"></span>
 						</label>
 					</td>
 					<td>
-						<h2>Vehicles</h2>
+						<h2>Attachments</h2>
 					</td>
 				</tr>
 				<tr id="meds">
@@ -90,7 +101,7 @@
 						</label>
 					</td>
 					<td>
-						<h2>Drop Location</h2>
+						<h2>Drop Spot</h2>
 					</td>
 				</tr>
 				<tr id="special">
@@ -107,24 +118,15 @@
 			</table>
 
 			<button class="randomize">Randomize</button>
-			
+
 		</div>
 		<div class="generated">
 		</div>
-		
+
     </article>
 	</main>
 	<footer>
-        
+
     </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-

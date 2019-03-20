@@ -1,126 +1,128 @@
 $(document).ready(function(){
 
+    var generateLegends = false;
     var generateWeapons = false;
     var generateArmor = false;
-    var generateEquipment = false;
-    var generateVehicles = false;
+    var generateGrenades = false;
+    var generateAttachments = false;
     var generateMeds = false;
     var generateDrop = false;
     var generateSpecial = false;
 
-    var weapons = ["Snipers only!",
-                   "Assault rifles only!",
-                   "Tactical rifles only!",
-                   "Secondaries only!",
-                   "Equipment only! You may also use a bowie knife.",
-                   "Any weapon!",
-                   "No attachments on any weapon!"];
 
-    var armor = ["Level 1 only!",
-                 "Level 2 only!",
-                 "Level 3 only!",
-                 "Any armor!",
-                 "No armor! Good luck!",
-                 "Only armor that you find on dead enemies (or teammates)."];
+    var legends = ['Bloodhound', 'Wraith', 'Gibraltar', 'Bangalore', 'Caustic', 'Mirage', 'Octane', 'Pathfinder', 'Lifeline'];
 
-    var equipment = ["No equipment!",
-                     "Any equipment!",
-                     "Only grenades (molotovs count).",
-                     "Only concussions and smoke grenades!",
-                     "Only the combat axe!"];
+    var weapons = ['Only light weapons', 'Only heavy weapons', 'Only energy weapons', 'Only shotguns', "You must run the same gun in both slots"];
 
-    var vehicles = ["No vehicles!",
-                    "Must ride at least one vehicle before you make it to the top 40!",
-                    "Only quads!",
-                    "Only trucks!!",
-                    "Only ARAVs!",
-                    "Only helis!", 
-                    "Only boats!"];
+    var armor = ['Level 1 only', 'Level 2 or worse only', 'Level 3 or worse only', 'Any armor', 'Only armor found on dead bodies'];
 
-    var meds = ["No meds... GG!",
-                "Any meds!",
-                "Only first aids.",
-                "Only med kits!",
-                "Only trauma kits!",
-                "You can only use meds found from a death stash!",
-                "You can only use meds found on the ground... None from death stashes!"];
+    var grenades = ['Only frags', 'Only arc stars', 'Only thermite grenades', 'Any grenades', 'No grenades'];
 
-    var dropsLetters = ["A","B","C","D","E","F","G","H"];
-    var dropsNumbers = ["1","2","3","4","5","6","7","8"];
+    var attachments = ['Any attachments', 'No hopups', 'No stocks', 'No mags', 'No barrel stabilizers', 'No sights', 'No attachments'];
 
-    var special = ["FIRST TRY: You can only use the first two guns you pick up!",
-                   "THE TURTLE: You can't sprint... At all... For the entire game...",
-                   "GUERILLA WARFARE: You can pick up one gun and its ammo. After this, you can only acquire items through the death stashes of the enemies you killed!",
-                   "LIGHTWEIGHT: You can't use backpacks!",
-                   "MY FAVORITE DROP ZONE: Overrides the random drop spot. You can only loot items found at the site you drop at (ex. Construction, Fracking, etc."];
+    var meds = ['Only syringes', 'Only medkits', 'Only pheonix kits', 'Any meds', 'Only ground meds', 'Only meds from stashes'];
+
+    var drops = ['Slum Lakes', 'Artillery', 'Relay', 'Wetlands', 'Cascades', 'The Pit', 'Runoff', 'Bunker', 'Swamps', 'Hydro Dam', 'Bridges', 'Repulsor', 'Market', 'Airbase', 'Skulltown', 'Thunderdome', 'Water Treatment', 'Supply Ship'];
+
+    var special = ['FIRST TRY: You are only able to use the first two guns you pick up. No grenades!',
+                   'GUERILLA WARFARE: You can pick up one gun (and its ammo) to start the game. After this, you can only acquire items through the death boxes of other players.',
+                   'LIGHTWEIGHT: You cannot use any backpacks!',
+                   'MY FAVORITE DROP SPOT: You can only loot items found at the ste you drop at (Artillery, Skulltown, etc.). You can also loot the items from dead enemies.',
+                   'SEPARATE BUT EQUAL: Each player must drop in a different zone, and cannot meet back together until the first circle has collapsed',
+                   'DOWN AND OUT: You are not allowed to respawn any eliminated teammates.',
+                   'SEVERELY UNDEREQUIPPED: You can only pick up grenades, shotgun ammo, and the best weapon in the game; the Mozambique. No other items may be used whatsoever.',
+                   'TALENT DEPRIVED: You cannot use your legend ability OR your Ultimate ability.'];
 
     $("button").click(function(){
 
     $("div.generated").empty();
 
 
-    if ($("input.weapons").prop('checked')) { 
+    if ($("input.legends").prop('checked')) {
+        generateLegends = true;
+    } else {
+        generateLegends = false;
+    }
+
+    if ($("input.weapons").prop('checked')) {
         generateWeapons = true;
-    } else { 
+    } else {
         generateWeapons = false;
     }
-    if ($("input.armor").prop('checked')) { 
+
+    if ($("input.armor").prop('checked')) {
         generateArmor = true;
-    } else { 
+    } else {
         generateArmor = false;
     }
-    if ($("input.equipment").prop('checked')) { 
-        generateEquipment = true;
-    } else { 
-        generateEquipment = false;
+
+    if ($("input.grenades").prop('checked')) {
+        generateGrenades = true;
+    } else {
+        generateGrenades = false;
     }
-    if ($("input.vehicles").prop('checked')) { 
-        generateVehicles = true;
-    } else { 
-        generateVehicles = false;
+    if ($("input.attachments").prop('checked')) {
+        generateAttachments = true;
+    } else {
+        generateAttachments = false;
     }
-    if ($("input.meds").prop('checked')) { 
+    if ($("input.meds").prop('checked')) {
         generateMeds = true;
-    } else { 
+    } else {
         generateMeds = false;
     }
-    if ($("input.drop").prop('checked')) { 
+    if ($("input.drop").prop('checked')) {
         generateDrop = true;
-    } else { 
+    } else {
         generateDrop = false;
     }
-    if ($("input.special").prop('checked')) { 
+    if ($("input.special").prop('checked')) {
         generateSpecial = true;
-    } else { 
+    } else {
         generateSpecial = false;
     }
-    if (generateWeapons) { 
+
+/*
+var array = [2, 5, 9];
+console.log(array)
+var index = array.indexOf(5);
+if (index > -1) {
+  array.splice(index, 1);
+}
+// array = [2, 9]
+console.log(array);
+*/
+    if (generateLegends) {
+        $("div.generated").append('<h2 class="generated">Legends</h2>');
+        $("div.generated").append('<p class="generated">' + legends[Math.floor(Math.random()*legends.length)] + "</p>");
+    }
+    if (generateWeapons) {
         $("div.generated").append('<h2 class="generated">Weapons</h2>');
         $("div.generated").append('<p class="generated">' + weapons[Math.floor(Math.random()*weapons.length)] + "</p>");
     }
-    if (generateArmor) { 
+    if (generateArmor) {
         $("div.generated").append('<h2 class="generated">Armor</h2>');
         $("div.generated").append('<p class="generated">' + armor[Math.floor(Math.random()*armor.length)] + "</p>");
     }
-    if (generateEquipment) { 
-        $("div.generated").append('<h2 class="generated">Equipment</h2>');
-        $("div.generated").append('<p class="generated">' + equipment[Math.floor(Math.random()*equipment.length)] + "</p>");
+    if (generateGrenades) {
+        $("div.generated").append('<h2 class="generated">Grenades</h2>');
+        $("div.generated").append('<p class="generated">' + grenades[Math.floor(Math.random()*grenades.length)] + "</p>");
     }
-    if (generateVehicles) { 
-        $("div.generated").append('<h2 class="generated">Vehicles</h2>');
-        $("div.generated").append('<p class="generated">' + vehicles[Math.floor(Math.random()*vehicles.length)] + "</p>");
+    if (generateAttachments) {
+        $("div.generated").append('<h2 class="generated">Attachments</h2>');
+        $("div.generated").append('<p class="generated">' + attachments[Math.floor(Math.random()*attachments.length)] + "</p>");
     }
-    if (generateMeds) { 
+    if (generateMeds) {
         $("div.generated").append('<h2 class="generated">Meds</h2>');
         $("div.generated").append('<p class="generated">' + meds[Math.floor(Math.random()*meds.length)] + "</p>");
     }
-    if (generateDrop) { 
-        $("div.generated").append('<h2 class="generated">Drop</h2>');
-        $("div.generated").append('<p class="generated">' + dropsLetters[Math.floor(Math.random()*dropsLetters.length)] + dropsNumbers[Math.floor(Math.random()*dropsNumbers.length)] +  "</p>");
+    if (generateDrop) {
+        $("div.generated").append('<h2 class="generated">Drop Spot</h2>');
+        $("div.generated").append('<p class="generated">' + drops[Math.floor(Math.random()*drops.length)] + "</p>");
     }
-    if (generateSpecial) { 
+    if (generateSpecial) {
         $("div.generated").append('<h2 class="generated">Special Challenge</h2>');
         $("div.generated").append('<p class="generated">' + special[Math.floor(Math.random()*special.length)] + "</p>");
     }
-  }); 
+  });
 });
